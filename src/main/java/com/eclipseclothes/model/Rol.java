@@ -35,7 +35,7 @@ public class Rol implements Serializable {
 
 	
 	
-	public Rol() {
+	/*public Rol() {
 	
 		
 	}
@@ -73,7 +73,7 @@ public class Rol implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
-	}
+	}*/
 	
 	
 	

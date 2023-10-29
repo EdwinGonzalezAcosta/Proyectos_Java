@@ -60,7 +60,7 @@ public class Producto implements Serializable {
 	
 	
 
-	public Producto() {
+	/*public Producto() {
 	
 	}
 
@@ -152,7 +152,7 @@ public class Producto implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
-	}
+	}*/
 	
 	
 	

@@ -20,10 +20,10 @@
 
 	<!-- jQuery data table -->
 	<script>
-		$(document).ready(function() {
-    $('#tableUsuarios').DataTable();
-	    });
-      
+		$(document).ready(function () {
+			$('#tableUsuarios').DataTable();
+		});
+
 	</script>
 </head>
 
@@ -39,13 +39,13 @@
 		<h3 class="text-center">Listado de Usuarios</h3>
 
 		<div class="row">
-			
+
 			<!-- crea nuevo -->
 			<div class="col-12 ps-5 mb-3">
 				<a th:href="@{/administrador/usuario/crear}" class="btn btn-primary">Crear nuevo</a>
 			</div>
 			<!-- crear nuevo -->
-			
+
 			<!-- tabla -->
 			<article class="col-12 px-5">
 				<div>
@@ -59,7 +59,8 @@
 								<th scope="col">Contraseña</th>
 								<th scope="col">Estado</th>
 								<th scope="col">Imagen</th>
-							    
+								<th scope="col">Acciones</th>
+
 						</thead>
 						<tbody>
 							<tr th:each="usuario : ${lstUsuarios}">
@@ -69,8 +70,9 @@
 								<td th:text="${usuario.correo}"></td>
 								<td th:text="${usuario.password}"></td>
 								<td th:text="${usuario.enabled}"></td>
-								<td><img th:src="@{/mediafiles/{img} (img=${usuario.imagen}) }" style="width: 2.5rem; height: 2.5rem;" /></td>
-						        
+								<td><img th:src="@{/mediafiles/{img} (img=${usuario.imagen}) }"
+										style="width: 2.5rem; height: 2.5rem;" /></td>
+
 								<td>
 									<a th:href="@{/administrador/usuario/editar/{id} (id=${usuario.id})}">
 										<i class="bi bi-pencil-square"></i>
@@ -86,7 +88,7 @@
 				</div>
 			</article>
 			<!-- tabla -->
-			
+
 		</div>
 	</main>
 	<!-- main -->

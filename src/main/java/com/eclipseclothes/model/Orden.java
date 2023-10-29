@@ -59,7 +59,7 @@ public class Orden implements Serializable {
 	
 	
 	
-	public Orden() {
+	/*public Orden() {
 	
 	}
 
@@ -124,7 +124,7 @@ public class Orden implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
-	}
+	}*/
 	
 	
 	

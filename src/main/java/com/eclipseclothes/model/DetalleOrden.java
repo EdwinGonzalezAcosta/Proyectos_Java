@@ -47,7 +47,7 @@ public class DetalleOrden implements Serializable {
 	
 	
 
-	public DetalleOrden() {
+	/*public DetalleOrden() {
 		
 	}
 	
@@ -112,7 +112,7 @@ public class DetalleOrden implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
-	}
+	}*/
 	
 	
 	
