@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Eclipse Clothes</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+	<style>
+		.container-card {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+			gap: 1rem;
+			justify-content: center;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<!-- nav bar -->
+	<div th:replace="~{fragments/user-fragment.html::header}"></div>
+
+	<!-- main -->
+	<main class="container-xxl">
+		<!-- card -->
+		<div class="container-card mt-4">
+			<div th:each="producto : ${lstProductos}">
+				<div class="card">
+					<img th:src="@{/mediafiles/{img} (img=${producto.imagen})}" class="card-img-top object-fit-contain" alt="${producto.imagen}" style="aspect-ratio: 4/3;">
+					<div class="card-body bg-light">
+						<h5 class="card-title" th:text="${producto.nombre}"></h5>
+						<p class="fw-bold fs-5" th:text="'S/.' + ${producto.precio}"></p>
+						<p class="card-text" th:text="${producto.descripcion}"></p>
+						<a th:href="@{/detalles/{id} (id=${producto.id})}" class="btn btn-primary d-block mx-auto">Ver detalles</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- card -->
+	</main>
+	<!-- main -->
+
+	<!-- footer -->
+	<div th:insert="~{fragments/user-fragment.html::footer}"></div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
