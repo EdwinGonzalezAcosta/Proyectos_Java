@@ -1,6 +1,7 @@
 package com.eclipseclothes.model;
 
 import java.io.Serializable;
+
 import java.util.Set;
 
 import jakarta.persistence.Column;
@@ -35,7 +36,7 @@ public class Rol implements Serializable {
 
 	
 	
-	/*public Rol() {
+	public Rol() {
 	
 		
 	}
@@ -73,7 +74,7 @@ public class Rol implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
-	}*/
+	}
 	
 	
 	

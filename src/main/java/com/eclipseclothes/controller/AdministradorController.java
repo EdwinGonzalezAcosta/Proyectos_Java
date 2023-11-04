@@ -14,9 +14,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.eclipseclothes.model.Categoria;
 import com.eclipseclothes.model.Producto;
+import com.eclipseclothes.model.Rol;
 import com.eclipseclothes.model.Usuario;
 import com.eclipseclothes.service.ICategoriaService;
+import com.eclipseclothes.service.IOrdenService;
 import com.eclipseclothes.service.IProductoService;
+import com.eclipseclothes.service.IRolService;
 import com.eclipseclothes.service.ISubirArchivo;
 import com.eclipseclothes.service.IUsuarioService;
 
@@ -35,6 +38,11 @@ public class AdministradorController {
 	
 	@Autowired
 	private IUsuarioService usuarioService;
+	
+	@Autowired
+	private IOrdenService ordenService;
+	@Autowired
+	private IRolService rolService;
 	
 	@GetMapping("")
 	public String home() {
@@ -278,6 +286,78 @@ public class AdministradorController {
 		usuarioService.eliminar(id);
 		
 		return "redirect:/administrador/usuarios";
+	}
+	
+	//Ordenes
+	
+	@GetMapping("/orden")
+	public String orden(Model model) {
+		model.addAttribute("lstOrden", ordenService.listar());
+		
+		return "ordenes/lista";
+	}
+	
+	//rol
+	
+	@GetMapping("/rol")
+	public String roles(Model model) {
+		model.addAttribute("rol", new Rol());
+		model.addAttribute("lstRoles", rolService.listar());
+		
+		return "roles/lista";
+	}
+	
+	
+	
+	@PostMapping("/rol/crear")
+	public String crearRol(Rol rol, Model model) {
+		
+		System.out.println(rol);
+		
+		rolService.crear(rol);
+		
+		model.addAttribute("rol", new Rol());
+		model.addAttribute("lstRoles", rolService.listar());
+		model.addAttribute("mensaje", "Guardado con éxito.");
+		
+		return "roles/lista";
+	}
+	
+	@GetMapping("/rol/editar/{id}")
+	public String editarRol(@PathVariable int id, Model model) {
+		
+		model.addAttribute("rol", rolService.obtener(id));
+		model.addAttribute("lstRoles", rolService.listar());
+		model.addAttribute("editar", true);
+		
+		return "roles/lista";
+	}
+	
+	
+	@PostMapping("/rol/actualizar")
+	public String actualizarRol(Rol rol, Model model) {
+		
+		System.out.println(rol);
+		
+		rolService.actualizar(rol);
+		
+		model.addAttribute("rol", new Rol());
+		model.addAttribute("lstRoles", rolService.listar());
+		model.addAttribute("mensaje", "Actualizado con éxito.");
+		
+		return "roles/lista";
+	}
+	
+	@GetMapping("/rol/eliminar/{id}")
+	public String eliminarRol(@PathVariable int id, Model model) {
+		
+		rolService.eliminar(id);
+		
+		model.addAttribute("rol", new Rol());
+		model.addAttribute("lstRoles", rolService.listar());
+		model.addAttribute("mensaje", "Eliminado con éxito.");
+		
+		return "roles/lista";
 	}
 	
 }

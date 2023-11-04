@@ -34,7 +34,7 @@ public class Categoria implements Serializable {
 	@OneToMany(mappedBy = "categoria")
 	private List<Producto> productos;
 
-	/*public Categoria(int id, String nombre, List<Producto> productos) {
+	public Categoria(int id, String nombre, List<Producto> productos) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -75,7 +75,7 @@ public class Categoria implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
-	}*/
+	}
 	
 	
 	

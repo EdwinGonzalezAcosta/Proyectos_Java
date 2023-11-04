@@ -64,7 +64,7 @@ public class Usuario implements Serializable {
 
 	
 	
-	/*public Usuario() {
+	public Usuario() {
 	
 	}
 
@@ -166,7 +166,7 @@ public class Usuario implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
-	}*/
+	}
 	
 	
 	
